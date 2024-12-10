@@ -1,0 +1,38 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+
+# Compiler settings
+solc = "0.8.28"
+optimizer = true
+optimizer_runs = 200
+
+# Test settings
+verbosity = 3  # Show test traces
+fuzz_runs = 1000  # Number of fuzz runs per test
+gas_reports = ["CityCouncilDAO", "CityCouncilMeetingQueue", "VotingFunction"]  # Generate gas reports for these contracts
+
+# Allow reading env variables
+fs_permissions = [{ access = "read", path = "./.env" }]
+
+[profile.ci]
+fuzz_runs = 10_000  # More fuzz runs in CI
+verbosity = 4  # Maximum verbosity in CI
+
+[etherscan]
+mainnet = { key = "${ETHERSCAN_API_KEY}" }
+sepolia = { key = "${ETHERSCAN_API_KEY}" }
+
+[rpc_endpoints]
+mainnet = "${MAINNET_RPC_URL}"
+sepolia = "${SEPOLIA_RPC_URL}"
+
+[fmt]
+line_length = 120
+tab_width = 4
+bracket_spacing = false
+int_types = "long"
+multiline_func_header = "attributes_first"
+quote_style = "double"
+number_underscore = "preserve"
