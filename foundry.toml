@@ -22,7 +22,7 @@ verbosity = 4  # Maximum verbosity in CI
 
 [etherscan]
 mainnet = { key = "${ETHERSCAN_API_KEY}" }
-sepolia = { key = "${ETHERSCAN_API_KEY}" }
+sepolia = { key = "${ETHERSCAN_API_KEY}", url = "https://api-sepolia.etherscan.io/api" }
 
 [rpc_endpoints]
 mainnet = "${MAINNET_RPC_URL}"
