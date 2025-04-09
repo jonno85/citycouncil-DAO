@@ -14,7 +14,10 @@ fuzz_runs = 1000  # Number of fuzz runs per test
 gas_reports = ["CityCouncilDAO", "CityCouncilMeetingQueue", "VotingFunction"]  # Generate gas reports for these contracts
 
 # Allow reading env variables
-fs_permissions = [{ access = "read", path = "./.env" }]
+fs_permissions = [
+  { access = "read", path = "./.env" },
+  { access = "write", path = "./deployment.txt" } 
+]
 
 [profile.ci]
 fuzz_runs = 10_000  # More fuzz runs in CI
